@@ -50,7 +50,7 @@ export default function WelcomeModal({ onSave }) {
               type="number" 
               value={age} 
               onChange={(e) => setAge(e.target.value)} 
-              placeholder="مثال: 21" 
+              placeholder="مثال: 20" 
               required 
             />
           </div>
