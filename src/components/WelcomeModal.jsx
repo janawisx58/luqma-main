@@ -18,7 +18,7 @@ export default function WelcomeModal({ onSave }) {
   return (
     <div className="welcome-overlay">
       <div className="welcome-modal">
-        <h2>مرحباً بكِ في تطبيق لقمة 🥗</h2>
+        <h2>مرحباً بك في تطبيق لقمة 🥗</h2>
         <p>الرجاء إدخال بياناتكِ الشخصية لنبدأ رحلة تتبع السعرات:</p>
         
         <form onSubmit={handleSubmit}>
