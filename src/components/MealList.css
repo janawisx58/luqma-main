@@ -1,0 +1,228 @@
+.meal-list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 20px 16px 120px; /* مسافة تحت حتى لا يغطي الـ BottomNav آخر وجبة */
+}
+
+/* بطاقة التسجيل بالذكاء الاصطناعي */
+.ai-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+}
+
+.ai-card-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.ai-card-hint {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.ai-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ai-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  line-height: 1.6;
+  resize: none;
+}
+
+.ai-form textarea:focus {
+  border-color: var(--saffron);
+  outline: none;
+}
+
+.ai-form textarea:disabled {
+  opacity: 0.6;
+}
+
+.ai-message {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.ai-message.is-error {
+  color: var(--sumac);
+}
+
+.ai-message.is-success {
+  color: var(--olive);
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: -10px;
+}
+
+/* أقسام الوجبات */
+.meal-category {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cat-label {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.category-total {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.add-meal-btn {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--saffron);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.add-meal-btn:hover {
+  border-color: var(--saffron);
+}
+
+/* بطاقة الوجبة: اضغط عليها للتعديل */
+.meal-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 6px 6px 4px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.meal-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 10px;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  text-align: start;
+}
+
+.meal-main:hover {
+  background: var(--surface-raised);
+}
+
+.meal-name {
+  font-size: 15px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.meal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.meal-meta .macro-dot {
+  width: 6px;
+  height: 6px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+.meal-cal {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.meal-cal strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.meal-cal span {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.icon-btn {
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0 8px;
+  background: none;
+  border: none;
+  border-radius: var(--radius-sm);
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.icon-btn:hover {
+  background: var(--surface-raised);
+  color: var(--text);
+}
+
+.icon-btn.is-confirming {
+  background: rgba(224, 97, 76, 0.14);
+  color: var(--sumac);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.empty-category {
+  width: 100%;
+  padding: 14px;
+  background: none;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-md);
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.empty-category:hover {
+  border-color: var(--saffron);
+  color: var(--text);
+}
+
+.macro-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}

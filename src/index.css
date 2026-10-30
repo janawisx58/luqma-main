@@ -1,0 +1,183 @@
+/* ألوان التطبيق: مستوحاة من البهارات (زعفران، سماق، رمان، زيتون) على خلفية بنية */
+:root {
+  --bg: #1a1411;
+  --surface: #251c17;
+  --surface-raised: #2f241e;
+  --line: #3a2d25;
+  --text: #f5ebdd;
+  --muted: #a89684;
+  --saffron: #f2a93b;
+  --saffron-hover: #f6ba5c;
+  --sumac: #e0614c;
+  --pomegranate: #d04f6c;
+  --wheat: #e3c77d;
+  --olive: #9db35a;
+  --radius-lg: 22px;
+  --radius-md: 14px;
+  --radius-sm: 10px;
+  --font: 'Readex Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme: dark;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 2px;
+}
+
+/* عرض شاشة الموبايل */
+#root {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* الهيدر */
+.app-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 24px 20px 12px;
+}
+
+.wordmark {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--saffron);
+}
+
+.wordmark-latin {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+.today-date {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* الأزرار المشتركة */
+.btn {
+  flex: 1;
+  padding: 11px 14px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  font-weight: 600;
+  transition: background-color 0.15s;
+}
+
+.btn-primary {
+  background: var(--saffron);
+  color: var(--bg);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--saffron-hover);
+}
+
+.btn-primary:disabled {
+  opacity: 0.45;
+}
+
+.btn-secondary {
+  background: var(--surface-raised);
+  color: var(--text);
+}
+
+.btn-secondary:hover {
+  background: var(--line);
+}
+
+/* حقول النماذج */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+  min-width: 0;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 10px 12px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  color: var(--text);
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--saffron);
+  outline: none;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ألوان الماكروز (مشتركة بين البطاقة والقائمة) */
+.macro-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.protein { background-color: var(--pomegranate); }
+.carbs { background-color: var(--wheat); }
+.fat { background-color: var(--olive); }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
