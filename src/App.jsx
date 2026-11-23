@@ -3,6 +3,7 @@ import BottomNav from './components/BottomNav';
 import CalorieCard from './components/CalorieCard';
 import MealList from './components/MealList';
 import WelcomeModal from './components/WelcomeModal'; // نافذة الترحيب الجديدة
+import ProgressTracker from './components/ProgressTracker'; // قسم سجل التقدم اليومي
 
 const today = () => new Date().toDateString();
 
@@ -18,16 +19,20 @@ const loadMeals = () => {
 export default function App() {
   const [meals, setMeals] = useState(loadMeals);
   const [goal, setGoal] = useState(() => Number(localStorage.getItem('luqma_goal')) || 2000);
+  const [activeTab, setActiveTab] = useState('today');
 
-  // حالة بيانات المستخدم (الاسم، الوزن، العمر)
+  // حالة بيانات المستخدم (الاسم، الطول، الوزن، العمر، الجنس)
   const [userData, setUserData] = useState(() => {
     const saved = localStorage.getItem('luqma_user');
     return saved ? JSON.parse(saved) : null;
   });
 
-  const handleSaveUser = (data) => {
+  const handleSaveUser = (data, initialGoal) => {
     setUserData(data);
     localStorage.setItem('luqma_user', JSON.stringify(data));
+    if (typeof initialGoal === 'number' && initialGoal > 0) {
+      setGoal(initialGoal);
+    }
   };
 
   useEffect(() => {
@@ -61,11 +66,11 @@ export default function App() {
             fontSize: '0.9rem'
           }}>
             <div>
-              <span style={{ color: '#ff9800', fontWeight: 'bold' }}>الاسم: </span> {userData.name}
+              <span style={{ color: '#ff9800', fontWeight: 'bold' }}>الاسم: </span>{userData.name}
             </div>
             <div>
-              <span style={{ color: '#ff9800', fontWeight: 'bold' }}>الوزن: </span> {userData.weight} كغ | 
-              <span style={{ color: '#ff9800', fontWeight: 'bold' }}> العمر: </span> {userData.age} سنة
+              <span style={{ color: '#ff9800', fontWeight: 'bold' }}>الوزن: </span>{userData.weight} كغ |{' '}
+              <span style={{ color: '#ff9800', fontWeight: 'bold' }}>العمر: </span>{userData.age} سنة
             </div>
           </div>
         )}
@@ -79,11 +84,17 @@ export default function App() {
         </header>
 
         <main>
-          <CalorieCard meals={todayMeals} goal={goal} onGoalChange={setGoal} />
-          <MealList meals={todayMeals} setMeals={setMeals} />
+          {activeTab === 'today' ? (
+            <>
+              <CalorieCard meals={todayMeals} goal={goal} onGoalChange={setGoal} />
+              <MealList meals={todayMeals} setMeals={setMeals} />
+            </>
+          ) : (
+            <ProgressTracker meals={meals} goal={goal} />
+          )}
         </main>
 
-        <BottomNav />
+        <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
 
         {/* اسمك في أسفل المشروع */}
         <footer style={{
