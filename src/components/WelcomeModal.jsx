@@ -113,7 +113,7 @@ export default function WelcomeModal({ onSave }) {
                 type="number"
                 min="80"
                 max="250"
-                placeholder="165"
+                placeholder="170"
                 value={height}
                 onChange={(e) => setHeight(e.target.value)}
                 required
@@ -127,7 +127,7 @@ export default function WelcomeModal({ onSave }) {
                 type="number"
                 min="25"
                 max="300"
-                placeholder="55"
+                placeholder="54"
                 value={weight}
                 onChange={(e) => setWeight(e.target.value)}
                 required
